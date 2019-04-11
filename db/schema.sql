@@ -6,4 +6,7 @@ CREATE TABLE burgers(
 	burger_name			VARCHAR(30),
 	devoured			BOOLEAN,
     PRIMARY KEY(id)
-)
+);
+
+use burgers_db;
+INSERT INTO burgers (burger_name, devoured) VALUES ("Double Cheese Burger", False);
