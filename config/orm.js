@@ -1,5 +1,15 @@
 var connection = require("./connection.js");
 
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+        arr.push("?");
+    }
+  
+    return arr.toString();
+}
+
 var orm = {
     selectAll: function(tableInputs, cb){
         var queryString = "SELECT * FROM " + tableInputs + ";";
@@ -13,7 +23,11 @@ var orm = {
 
         queryString += "(";
         queryString += cols.toString();
-        queryString += ") VALUES (?)";
+        queryString += ") VALUES (";
+        queryString += printQuestionMarks(val.length);
+        queryString += ") ";
+
+        console.log(queryString);
 
         connection.query(queryString, val, function(err, result){
             if(err) throw err;
