@@ -5,7 +5,7 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         {{this.burger_name}}
-                        <button type="button" class="btn btn-success float-right consume" value="{{this.id}}">Consume {{this.id}}</button>
+                        <button type="button" class="btn btn-success float-right consume" value="{{this.id}}">Consume</button>
                     </div>
                 </div>
             {{/each}}
@@ -25,15 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            {{#each consumed_burger}}
-                <div class="card mt-3">
-                    <div class="card-body">
-                        {{this.burger_name}}
-                        <button type="button" class="btn btn-success float-right consume" value="{{this.id}}">Consume</button>
-                    </div>
-                </div>
-            {{/each}}
+        <div class="col-lg-4 devoured">
         </div>
     </div>
 </div>

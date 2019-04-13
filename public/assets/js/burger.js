@@ -1,20 +1,4 @@
 $(function(){
-    var burger = [];
-    var consumed_burger = [];
-
-    $.ajax("/", {
-        type: "GET"
-    }).then(
-        function(res){
-            for(var i=0; i<res.length; i++){
-                if(res[i].devoured === 0){
-                    burger.push(res[i])
-                } else {
-                    consumed_burger.push(res[i])
-                }
-            }
-        }
-    )
 
     $("#submit").on("click", function(event) {
         event.preventDefault();
@@ -29,17 +13,20 @@ $(function(){
         }).then(
             function() {
               console.log("Created");
+              location.reload();
             }
         );
 
     });
     
     $(".consume").on("click", function(event) {
-        var id = $(".consume").val();
+        var id = $(this).val();
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: 1
-        }).then(
+            data: {
+                devoured: 1
+            }
+          }).then(
             function() {
                 console.log("done");
                 location.reload();
